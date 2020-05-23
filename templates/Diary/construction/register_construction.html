@@ -1,0 +1,37 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+
+{% block title %}Cadastro de Obra{% endblock %}
+
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <a class="breadcrumb-item active" href="{% url 'show_constructions' %}">Obras</a><li class="breadcrumb-item active">Cadastrar Obra</li>
+                        </ol>
+
+                        <form method="post">{% csrf_token %}
+                              <div class="modal-body">
+
+                                  <div class="form-row">
+                                      <div class="form-group col-md-6">
+                                        <label for="obraNome" class="col-form-label" >Descrição:</label>
+                                        <input name="obraNome" type="text" class="form-control" id="obraNome" onkeyup="this.value=this.value.toUpperCase();" placeholder="Ex: Construção A">
+                                        <input name="empresaUser" type="hidden" value="{{ usuario.id }}">
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="obraPrazContrat" class="col-form-label" >Prazo:</label>
+                                        <input name="obraPrazContrat" type="date" class="form-control" id="obraPrazContrat" onkeyup="this.value=this.value.toUpperCase();" placeholder="Ex: 00/00/0000">
+                                        <input name="empresaCliente" type="hidden" value="{{ cliente.id }}">
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="card-body"><hr>
+                                  <a class="btn btn-success mr-3" href="{% url 'home_page' %}">Cadastrar</a>
+                                  <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                              </div>
+                        </form>
+                    </div>
+                </main>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastro de diário{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <li class="breadcrumb-item active">Cadastro de Observação</li>
+                        </ol>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="modal-body">
+
+                                  <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label" >Descrição do serviço:</label>
+                                    <textarea name="obsDescServ" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();"></textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label" >Observações:</label>
+                                      <textarea name="obsComentario" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();"></textarea>
+                                    <input name="diario" type="hidden" value="{{ diario.id }}">
+                                  </div>
+                            </div>
+                        </form>
+
+                        <div class="card-body"><hr>
+                             <a class="btn btn-primary mr-3" href="{% url 'show_diary' %}">Finalizar</a>
+                             <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                        </div>
+                    </div>
+                </main>
+{% endblock %}

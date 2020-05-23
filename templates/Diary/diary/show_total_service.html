@@ -1,0 +1,38 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastro de diário{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <li class="breadcrumb-item active">Total dos Serviços</li>
+                        </ol><br>
+
+                        <div class="total">
+
+                                <div class="form-group col-md-12">
+                                  <label class="col-form-label" for="qtdTotalMaoObra">Mão de Obras:</label>
+                                  <h5>25</h5>
+                                </div>
+
+
+                                <div class="form-group col-md-12">
+                                  <label class="col-form-label" for="qtdTotalEquipamento">Equipamentos:</label>
+                                  <h5>10</h5>
+                                </div>
+                        </div><br>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <input name="QtdServMaoObra" type="hidden" value="{{ qtdTotalMaoObra }}">
+                            <input name="QtdServEquip" type="hidden" value="{{ qtdTotalEquipamento }}">
+                            <input name="diario" type="hidden" value="{{ diario.id }}">
+                        </form>
+
+                            <div class="card-body"><hr>
+                                 <a class="btn btn-success mr-3" href="{% url 'register_observation' %}">Prosseguir</a>
+                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                            </div>
+                    </div>
+                </main>
+{% endblock %}

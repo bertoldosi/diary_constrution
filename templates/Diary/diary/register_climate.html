@@ -1,0 +1,36 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastro de diário{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <li class="breadcrumb-item active">Cadastro de Clima</li>
+                        </ol>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="modal-body">
+
+                                  <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label" >Manhã:</label>
+                                    <input name="climaManha" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label" >Tarde:</label>
+                                    <input name="climaTarde" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Noite:</label>
+                                    <input name="climaNoite" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();" value="SEM EXPEDIENTE">
+                                    <input name="diario" type="hidden" value="{{ diario.id }}">
+                                  </div>
+                            </div>
+                        </form>
+
+                        <div class="card-body"><hr>
+                             <a class="btn btn-success mr-3" href="{% url 'show_total_service' %}">Cadastrar</a>
+                             <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                        </div>
+                    </div>
+                </main>
+{% endblock %}

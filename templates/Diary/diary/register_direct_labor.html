@@ -1,0 +1,33 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastro de diário{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <li class="breadcrumb-item active">Cadastro de Mão de Obra Direta</li>
+                        </ol>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="modal-body">
+
+                                  <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label" >Descrição:</label>
+                                    <input name="maoObraDirDesc" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Quantidade:</label>
+                                    <input name="maoObraDirQtd" type="number" class="form-control" id="recipient-name" value="0">
+                                    <input name="diario" type="hidden" value="{{ diario.id }}">
+                                  </div>
+                            </div>
+                        </form>
+
+                            <div class="card-body"><hr>
+                                 <a class="btn btn-success mr-3" href="{% url 'register_indirect_labor' %}">Cadastrar</a>
+                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                            </div>
+                    </div>
+                </main>
+{% endblock %}

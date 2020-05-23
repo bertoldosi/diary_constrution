@@ -1,0 +1,39 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastro de diário{% endblock %}
+                {% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Diários Relatados</li>
+                        </ol>
+                        <table class="table table-hover table-dark">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Diário</th>
+                                  <th scope="col">Data</th>
+                                  <th scope="col">Ações</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>13/05/2020</td>
+                                  <td><a class="btn btn-info mr-3" href="{% url 'show_diary_information' %}">Abrir</a></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>14/05/2020</td>
+                                  <td><a class="btn btn-info mr-3" href="#">Abrir</a></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>15/05/2020</td>
+                                  <td><a class="btn btn-info mr-3" href="#">Abrir</a></td>
+                                </tr>
+                              </tbody>
+                        </table>
+                    </div>
+                </main>
+                {% endblock %}
+
