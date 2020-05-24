@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-br">
 
 <head>
 
@@ -17,6 +18,30 @@
   <!-- Custom styles for this template-->
   <link href="static/access/css/sb-admin.css" rel="stylesheet">
 
+  <!-- css search -->
+
+  <!-- Css Bootstrap-->
+  <link rel="stylesheet" href="{%  static 'search/jquery-ui.css' %}" type="text/css" media="all" />
+  <script src="{%  static 'search/jquery.min.js' %}" type="text/javascript"></script>
+
+  <!-- Este js não funciona estático -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+
+  <script>
+        $(document).ready(function(){
+            $("#txtSearch").autocomplete({
+                source: "/ajax_calls/search/",
+                /* Defenir o tanto de letra para começar a buscar*/
+                minLength: 1,
+                open: function(){
+                    setTimeout(function () {
+                        $('.ui-autocomplete').css('z-index', 99);
+                    }, 0);
+                }
+              });
+        });
+  </script>
+
 </head>
 
 <body class="bg-dark">
@@ -30,10 +55,21 @@
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-12">
+                <label for="customer_name">Nome</label>
                 <div class="form-label-group">
-                  <label for="customer_name">Nome</label>
                   <input name="customer_name" type="text" id="customer_name" class="form-control" required="required">
                   <input name="user_access" type="hidden" value="{{ user }}">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="txtSearch">Engenheiro</label>
+                <div class="form-label-group">
+                    <input type="text" class="form-control" id="txtSearch" name="engineer">
                 </div>
               </div>
             </div>
@@ -48,14 +84,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="static/access/js/jquery.min.js"></script>
-  <script src="static/access/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="static/access/js/jquery.easing.min.js"></script>
-
 </body>
 
 </html>

@@ -30,6 +30,8 @@ class Engineer(models.Model):
 class Customer(models.Model):
     user_access = models.ForeignKey(Access, on_delete=models.CASCADE)
 
+    engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE)
+
     customer_name = models.CharField('Nome do cliente', max_length=50)
 
     def __str__(self):

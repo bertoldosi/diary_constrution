@@ -1,10 +1,11 @@
+from django.conf.urls import url
 from django.urls import path
 
 from Diary.views.construction.register_construction import Register_construction
 from Diary.views.construction.select_customer import Select_customer
 from Diary.views.construction.show_constructions import Show_constructions
 from Diary.views.customer.edit_customer import Edit_customer
-from Diary.views.customer.register_customer import Register_customer
+from Diary.views.customer.register_customer import Register_customer, autocompleteModel
 from Diary.views.customer.show_customer import Show_customer
 from Diary.views.diary.register_climate import Register_climate
 from Diary.views.diary.register_contractor_equipment import Register_equipment_contractor
@@ -58,4 +59,6 @@ urlpatterns = [
     path('show_total_service', Show_total_service, name="show_total_service"),
     path('show_diary', Show_diary, name="show_diary"),
     path('show_diary_information', Show_diary_information, name="show_diary_information"),
+
+    url(r'^ajax_calls/search/', autocompleteModel),
 ]
