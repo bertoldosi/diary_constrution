@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from django.urls import path
-
 from Diary.views.construction.register_construction import Register_construction
 from Diary.views.construction.select_customer import Select_customer
 from Diary.views.construction.show_constructions import Show_constructions
