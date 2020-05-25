@@ -16,18 +16,12 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+                                  {% for i in customers %}
                                     <tr>
-                                      <th scope="row">MARIA SILVA</th>
+                                      <th scope="row">{{ i }}</th>
                                       <td><a class="btn btn-info mr-3" href="{% url 'edit_customer' %}">Editar</a></td>
                                     </tr>
-                                    <tr>
-                                      <th scope="row">JOSÉ SOUZA</th>
-                                      <td><a class="btn btn-info mr-3" href="#">Editar</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">PEDRO PAULO</th>
-                                      <td><a class="btn btn-info mr-3" href="#">Editar</a></td>
-                                    </tr>
+                                  {% endfor %}
                                   </tbody>
                             </table>
                         </div>

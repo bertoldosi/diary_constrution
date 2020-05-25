@@ -24,8 +24,6 @@ def Login(request):
                     return redirect('register_engineer')
                 elif user.user_type == 'Cliente':
                     return redirect('register_customer')
-                else:
-                    return HttpResponse('Tipo de usuario não exite, você está doido ?')
             else:
                 login(request, user)
                 return redirect('home_page')

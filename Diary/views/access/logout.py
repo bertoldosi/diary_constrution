@@ -1,7 +1,7 @@
 from django.contrib.auth import logout
-from django.shortcuts import render
+from django.shortcuts import redirect
 
 
 def Logout(request):
     logout(request)
-    return render(request, 'Diary/access/login.html', locals())
+    return redirect('login')

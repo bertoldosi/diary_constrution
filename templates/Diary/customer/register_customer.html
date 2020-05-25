@@ -73,7 +73,7 @@
                       <input name="engineer" list="engineer" type="text" id="engineer_name" class="form-control" required="required">
                           <datalist id="engineer">
                               {% for i in engineer %}
-                                <option value="{{ i.id }}">{{ i }}</option>
+                                <option value="{{ i.id }}">{{ i.engineer_name }}</option>
                               {% endfor %}
                           </datalist>
 

@@ -36,3 +36,23 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.customer_name
+
+
+class Construction(models.Model):
+    construction_name = models.CharField('Nome da construção', max_length=60)
+    construction_date_start = models.DateField('Data de início')
+    construction_date_term = models.DateField('Data de entrega')
+
+    construction_company_customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    construction_company_engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.construction_name
+
+
+class Diary(models.Model):
+    diary_date_day = models.DateField('Data do atual')
+    diary_construction = models.ForeignKey(Construction, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.diary_date_day

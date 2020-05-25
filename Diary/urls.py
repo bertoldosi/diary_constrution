@@ -27,26 +27,26 @@ from Diary.views.access.recover_password import Recover_Password
 from Diary.views.user.access import Register_access
 
 urlpatterns = [
-    #Login
-    path('', Index, name='home_page'),
-    path('login', Login, name="login"),
+    # Login
+    path('home_page', Index, name='home_page'),
+    path('', Login, name="login"),
     path('logout', Logout, name="logout"),
-    #User
+    # User
     path('register_access', Register_access, name="register_access"),
     path('recover_password', Recover_Password, name="recover_password"),
-    #Customer
+    # Customer
     path('register_customer', Register_customer, name="register_customer"),
     path('show_customer', Show_customer, name="show_customer"),
     path('edit_customer', Edit_customer, name="edit_customer"),
-    #Enginner
+    # Enginner
     path('register_engineer', Register_engineer, name="register_engineer"),
     path('show_engineer', Show_engineer, name="show_engineer"),
     path('edit_engineer', Edit_engineer, name="edit_engineer"),
-    #Construction
+    # Construction
     path('register_construction', Register_construction, name="register_construction"),
     path('show_constructions', Show_constructions, name="show_constructions"),
     path('select_customer', Select_customer, name="select_customer"),
-    #Diary
+    # Diary
     path('register_diary', Register_diary, name="register_diary"),
     path('register_direct_labor', Register_direct_labor, name="register_direct_labor"),
     path('register_indirect_labor', Register_indirect_labor, name="register_indirect_labor"),
