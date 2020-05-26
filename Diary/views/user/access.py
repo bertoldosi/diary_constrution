@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from Diary.entidades.user_access import Access
-from Diary.forms.register_access_form import Access_form
+from Diary.forms.user.register_access_form import Access_form
 from Diary.services import access_service
 
 

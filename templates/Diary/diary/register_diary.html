@@ -8,41 +8,43 @@
                             <a class="breadcrumb-item active" href="{% url 'home_page' %}">Obras</a><li class="breadcrumb-item active">Cadastro de Diário</li>
                         </ol>
 
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="modal-body">
-                                  <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                          <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                                          <input name="diarioDtAtual" type="date" class="form-control" id="diarioDtAtual" required="required">
-                                        </div>
+                        <div class="modal-body">
+                            <form method="post">{% csrf_token %}
+                                      <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label class="col-form-label" for="diary_date_day">Data atual:</label>
+                                              <input name="diary_date_day" type="date" class="form-control" id="diary_date_day" required="required">
 
-                                        <div class="form-group col-md-6">
-                                          <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                                          <input name="diarioNumDiario" type="number" class="form-control" id="diarioNumDiario" required="required">
-                                        </div>
-                                  </div>
+                                              <input name="diary_construction" type="hidden" value="{{ construction.id }}">
+                                            </div>
+                                      </div>
 
-                                  <div class="form-row">
+                                <div class="card-body">
+                                     <button class="btn btn-success mr-3" type="submit"> Cadastrar</button>
+                                     <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
+                                </div><hr>
 
-                                        <div class="form-group col-md-6">
-                                          <label class="col-form-label" for="diarioDiasTrab">DIAS TRABALHADOS:</label>
-                                          <input name="diarioDiasTrab" type="text" class="form-control" id="diarioDiasTrab" required="required">
-                                        </div>
+                                <table class="table table-hover table-dark">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Diário</th>
+                                      <th scope="col">Data</th>
+                                      <th scope="col">Ações</th>
+                                    </tr>
+                                  </thead>
 
-                                        <div class="form-group col-md-6">
-                                          <label class="col-form-label" for="diarioSaldoPraz">SALDO DO PRAZO:</label>
-                                          <input name="diarioSaldoPraz" type="text" class="form-control" id="diarioSaldoPraz" required="required">
-                                          <input name="chave_obra" type="hidden" value="{{ obra.id }}">
-                                        </div>
-                                  </div>
-                            </div>
-
-                            <div class="card-body"><hr>
-                                 <a class="btn btn-success mr-3" href="{% url 'register_direct_labor' %}">Cadastrar</a>
-                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
-                            </div>
-                        </form>
+                                  <tbody>
+                                    {% for i in diarys %}
+                                        <tr>
+                                          <th scope="row">{{ i.id }}</th>
+                                          <td>{{ i.diary_date_day }}</td>
+                                          <td><a class="btn btn-info mr-3" href="{% url 'show_diary_information' %}">Abrir</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                  </tbody>
+                            </table>
+                            </form>
+                        </div>
                     </div>
                 </main>
 {% endblock %}

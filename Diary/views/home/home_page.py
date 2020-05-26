@@ -1,12 +1,16 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from Diary.models import Access, Engineer, Customer
+from Diary.models import *
 
 
 @login_required(login_url='login')
 def Index(request):
     user = request.user
     user = Access.objects.get(email=user.email)
+
+    engineer = Engineer.objects.get(user_access_id=user.id)
+    constructions = Construction.objects.filter(construction_company_engineer=engineer)
+
     if user.user_type == 'Engenheiro':
         nome_campo = 'engineer_name'
         usuario = Engineer.objects.get(user_access__email=user.email)

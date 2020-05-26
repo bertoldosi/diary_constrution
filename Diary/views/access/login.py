@@ -1,7 +1,6 @@
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from Diary.forms.login_form import Login_form
+from Diary.forms.user.login_form import Login_form
 from Diary.models import Access
 
 

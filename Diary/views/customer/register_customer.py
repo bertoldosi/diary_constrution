@@ -1,13 +1,12 @@
 import json
 
-import simplejson
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from Diary.entidades.customer import Customer
 from Diary.entidades.engineer import Engineer
-from Diary.forms.register_customer_form import Customer_form
+from Diary.forms.customer.register_customer_form import Customer_form
 from Diary.services import customer_service
 from Diary.models import Engineer
 

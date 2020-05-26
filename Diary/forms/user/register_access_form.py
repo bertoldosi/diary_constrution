@@ -1,5 +1,5 @@
 from django import forms
-from ..models import Access
+from Diary.models import Access
 
 
 class Access_form(forms.ModelForm):

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from Diary.entidades.usuario import Usuario
-from Diary.forms.register_user_form import Register_user_form
+from Diary.forms.user.register_user_form import Register_user_form
 from Diary.services import usuario_service
 
 

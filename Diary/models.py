@@ -54,5 +54,52 @@ class Diary(models.Model):
     diary_date_day = models.DateField('Data do atual')
     diary_construction = models.ForeignKey(Construction, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.diary_date_day
+
+class Direct_labor(models.Model):
+    direct_labor_description = models.CharField('Mão de obra direta', max_length=40)
+    direct_labor_amount = models.IntegerField('Quantidade')
+
+    direct_labor_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Indirect_labor(models.Model):
+    indirect_labor_description = models.CharField('Mão de obra indireta', max_length=40)
+    indirect_labor_amount = models.IntegerField('Quantidade')
+
+    indirect_labor_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Contractor_labor(models.Model):
+    contractor_labor_description = models.CharField('Mão de Obra de Empreiteras', max_length=40)
+    contractor_labor_amount = models.IntegerField('Quantidade')
+
+    contractor_labor_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Equipment_construction(models.Model):
+    equipment_construction_description = models.CharField('Equipamentos da obra', max_length=40)
+    equipment_construction_amount = models.IntegerField('Quantidade')
+
+    equipment_construction_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Contractor_equipment(models.Model):
+    contractor_equipment_description = models.CharField('Equipamentos de empreiteiras', max_length=40)
+    contractor_equipment_amount = models.IntegerField('Quantidade')
+
+    contractor_equipment_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Climate(models.Model):
+    climate_morning = models.CharField('Clima da manhã', max_length=20)
+    climate_evening = models.CharField('Clima da tarde', max_length=20)
+
+    climate_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+
+
+class Total_service(models.Model):
+    total_service_manpower = models.IntegerField('Quantidade de mão de obra')
+    total_service_equipment = models.IntegerField('Quantidade de equipamento')
+
+    total_service_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+

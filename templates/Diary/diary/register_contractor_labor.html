@@ -11,21 +11,24 @@
                             {% csrf_token %}
                             <div class="modal-body">
                                   <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label" >Descrição:</label>
-                                    <input name="maoObraDirDesc" type="text" class="form-control" id="recipient-name" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
+                                    <label for="contractor_labor_description" class="col-form-label" >Descrição:</label>
+                                    <input name="contractor_labor_description" type="text" class="form-control" id="contractor_labor_description" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
                                   </div>
                                   <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Quantidade:</label>
-                                    <input name="maoObraDirQtd" type="number" class="form-control" id="recipient-name" value="0">
-                                    <input name="diario" type="hidden" value="{{ diario.id }}">
+                                    <label for="contractor_labor_amount" class="col-form-label">Quantidade:</label>
+                                    <input name="contractor_labor_amount" type="number" class="form-control" id="contractor_labor_amount" value="0">
+
+                                    <input name="contractor_labor_diary" type="hidden" value="{{ diary }}">
                                   </div>
+                            </div>
+{{ amount }}
+                            <div class="card-body"><hr>
+                                 <button class="btn btn-success mr-3" type="submit">Cadastrar</button>
+                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
                             </div>
                         </form>
 
-                            <div class="card-body"><hr>
-                                 <a class="btn btn-success mr-3" href="{% url 'register_equipment' %}">Cadastrar</a>
-                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
-                            </div>
+
                     </div>
                 </main>
 {% endblock %}

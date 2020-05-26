@@ -1,6 +1,34 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from Diary.forms.diary.diary_form import DiaryForm
+from Diary.models import *
+
+
+def get_ultimo(diarys):
+    lista = []
+    for i in diarys:
+        lista.append(i)
+
+    return lista[-1]
+
 
 @login_required(login_url='login')
-def Register_diary(request):
-    return render(request, 'Diary/diary/register_diary.html')
+def Register_diary(request, id_construction):
+    construction = Construction.objects.get(id=id_construction)
+
+    diarys = Diary.objects.filter(diary_construction_id=construction.id)
+
+    form_diary = DiaryForm()
+    if request.method == 'POST':
+        form_diary = DiaryForm(request.POST)
+        if form_diary.is_valid():
+            form_diary.save()
+
+            diary = get_ultimo(diarys)
+            diary = diary.id
+
+            return redirect('register_direct_labor', diary)
+        else:
+            HttpResponse('Formulário inválido')
+    return render(request, 'Diary/diary/register_diary.html', locals())

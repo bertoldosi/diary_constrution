@@ -1,5 +1,5 @@
 from django import forms
-from ..models import Engineer
+from Diary.models import Engineer
 
 
 class Engineer_form(forms.ModelForm):

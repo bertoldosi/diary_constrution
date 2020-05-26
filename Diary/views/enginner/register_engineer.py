@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from Diary.entidades.engineer import Engineer
-from Diary.forms.register_engineer_form import Engineer_form
+from Diary.forms.engineer.register_engineer_form import Engineer_form
 from Diary.services import engineer_service
 
 
