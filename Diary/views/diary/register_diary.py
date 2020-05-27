@@ -6,11 +6,11 @@ from Diary.models import *
 
 
 def get_ultimo(diarys):
-    lista = []
+    list_diary = []
     for i in diarys:
-        lista.append(i)
+        list_diary.append(i)
 
-    return lista[-1]
+    return list_diary[-1]
 
 
 @login_required(login_url='login')

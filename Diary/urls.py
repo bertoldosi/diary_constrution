@@ -5,6 +5,7 @@ from Diary.views.construction.show_constructions import Show_constructions
 from Diary.views.customer.edit_customer import Edit_customer
 from Diary.views.customer.register_customer import Register_customer, autocompleteModel
 from Diary.views.customer.show_customer import Show_customer
+from Diary.views.diary.delete_diary import Delete_diary
 from Diary.views.diary.register_climate import Register_climate
 from Diary.views.diary.register_contractor_equipment import Register_equipment_contractor
 from Diary.views.diary.register_contractor_labor import Register_contractor_labor
@@ -52,10 +53,11 @@ urlpatterns = [
     path('register_contractor_labor/<diary>', Register_contractor_labor, name="register_contractor_labor"),
     path('register_equipment_contractor/<diary>', Register_equipment_contractor, name="register_equipment_contractor"),
     path('register_climate/<diary>', Register_climate, name="register_climate"),
-    path('register_observation', Register_observation, name="register_observation"),
+    path('register_observation/<diary>', Register_observation, name="register_observation"),
     path('show_total_service/<diary>', Show_total_service, name="show_total_service"),
     path('show_diary', Show_diary, name="show_diary"),
     path('show_diary_information', Show_diary_information, name="show_diary_information"),
+    path('delete_diary/<diary_id>', Delete_diary, name="delete_diary"),
 
     url(r'^ajax_calls/search/', autocompleteModel),
 ]

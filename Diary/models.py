@@ -103,3 +103,10 @@ class Total_service(models.Model):
 
     total_service_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
 
+
+class Observation(models.Model):
+    observation_description_service = models.TextField('Descrição do serviço')
+    observation_description = models.TextField('Observações')
+
+    observation_diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+

@@ -9,30 +9,29 @@
                         </ol><br>
 
                         <div class="total">
-
+                            <form method="post">{% csrf_token %}
                                 <div class="form-group col-md-12">
-                                  <label class="col-form-label" for="qtdTotalMaoObra">Mão de Obras:</label>
+                                  <label class="col-form-label" for="total_service_manpower">Mão de Obras:</label>
                                   <h5>{{ amount_manpower }}</h5>
-                                </div>
 
+                                  <input name="total_service_manpower" type="hidden" value="{{ amount_manpower }}">
+                                </div>
 
                                 <div class="form-group col-md-12">
-                                  <label class="col-form-label" for="qtdTotalEquipamento">Equipamentos:</label>
+                                  <label class="col-form-label" for="total_service_equipment">Equipamentos:</label>
                                   <h5>{{ amount_equipment }}</h5>
+
+                                  <input name="total_service_equipment" type="hidden" value="{{ amount_equipment }}">
+
+                                  <input name="total_service_diary" type="hidden" value="{{ diary }}">
                                 </div>
+
+                                <div class="card-body"><hr>
+                                     <button class="btn btn-success mr-3" type="submit">Prosseguir</button>
+                                     <a class="btn btn-danger mr-3" href="{% url 'delete_diary' diary %}">Cancelar</a>
+                                </div>
+                            </form>
                         </div><br>
-
-                        <form method="post">
-                            {% csrf_token %}
-                            <input name="QtdServMaoObra" type="hidden" value="{{ qtdTotalMaoObra }}">
-                            <input name="QtdServEquip" type="hidden" value="{{ qtdTotalEquipamento }}">
-                            <input name="diario" type="hidden" value="{{ diario.id }}">
-                        </form>
-
-                            <div class="card-body"><hr>
-                                 <a class="btn btn-success mr-3" href="{% url 'register_observation' %}">Prosseguir</a>
-                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
-                            </div>
                     </div>
                 </main>
 {% endblock %}
