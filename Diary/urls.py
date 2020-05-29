@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 from Diary.views.construction.register_construction import Register_construction
+from Diary.views.construction.show_construction_information import Show_construction_information
 from Diary.views.construction.show_constructions import Show_constructions
 from Diary.views.customer.edit_customer import Edit_customer
 from Diary.views.customer.register_customer import Register_customer, autocompleteModel
@@ -51,6 +52,7 @@ urlpatterns = [
     #Construction
     path('register_construction', Register_construction, name="register_construction"),
     path('show_constructions', Show_constructions, name="show_constructions"),
+    path('show_construction_information/<id_construction>', Show_construction_information, name="show_construction_information"),
     #Diary
     path('register_diary/<id_construction>', Register_diary, name="register_diary"),
     path('register_direct_labor/<diary>', Register_direct_labor, name="register_direct_labor"),

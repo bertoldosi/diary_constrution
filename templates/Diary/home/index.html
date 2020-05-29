@@ -15,9 +15,16 @@
                                 {% for i in constructions %}
                                     <div class="col-xl-3 col-md-6">
                                         <div class="card bg-primary text-white mb-4">
-                                            <div class="card-body">{{ i.construction_name }}</div>
+                                            <div class="card-body">Descrição: {{ i.construction_name }}
+                                                <p class="font-weight-light">Cliente: {{ i.construction_company_customer.customer_name }}</p>
+                                                <div class="">
+                                                    <p class="text-secondary">Início: {{ i.construction_date_start }}</p>
+                                                    <p class="text-secondary">Término: {{ i.construction_date_start }}</p>
+                                                </div>
+                                            </div>
+
                                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a class="small text-white stretched-link" href="{% url 'register_diary' i.id %}">Mais informações</a>
+                                                <a class="small text-white stretched-link" href="{% url 'register_diary' i.id %}">Relatar</a>
                                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                             </div>
                                         </div>
