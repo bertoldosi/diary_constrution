@@ -38,7 +38,7 @@
                                         <tr>
                                           <th scope="row">{{ i.id }}</th>
                                           <td>{{ i.diary_date_day }}</td>
-                                          <td><a class="btn btn-info mr-3" href="#">Abrir</a></td>
+                                          <td><a class="btn btn-info mr-3" href="{% url 'show_diary_information' i.id %}">Abrir</a></td>
                                         </tr>
                                     {% endfor %}
                                   </tbody>

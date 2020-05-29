@@ -1,0 +1,31 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastrando Cliente{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <a class="breadcrumb-item active" href="{% url 'show_customer' %}">Clientes</a><li class="breadcrumb-item active">Cadastro de Usuário</li><li class="breadcrumb-item active">Concluíndo cadastro</li>
+                        </ol>
+
+                        <form method="post">{% csrf_token %}
+                            <div class="modal-body">
+                                  <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <label for="customer_name" class="col-form-label" >Nome:</label>
+                                        <input name="customer_name" type="text" autocomplete="off" class="form-control" id="customer_name">
+
+                                        <input name="user_access" type="hidden" value="{{ usuario.id }}">
+                                        <input name="engineer" type="hidden" value="{{ enginner.id }}">
+                                      </div>
+                                  </div>
+                            </div>
+
+                            <div class="card-body"><hr>
+                                 <button class="btn btn-success mr-3" type="submit" >Cadastrar</button>
+                                 <a class="btn btn-danger mr-3" href="{% url 'show_customer' %}">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+{% endblock %}

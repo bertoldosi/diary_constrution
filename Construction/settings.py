@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Diary.apps.DiaryConfig',
+    'Customer.apps.CustomerConfig',
 ]
 
 MIDDLEWARE = [

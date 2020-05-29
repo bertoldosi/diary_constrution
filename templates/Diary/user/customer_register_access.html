@@ -1,0 +1,41 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Cadastrando Cliente{% endblock %}
+{% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-auto">
+                            <a class="breadcrumb-item active" href="{% url 'show_customer' %}">Clientes</a><li class="breadcrumb-item active">Cadastro de Usuário</li>
+                        </ol>
+
+                        <form method="post">{% csrf_token %}
+                            <div class="modal-body">
+                                  <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <label for="email" class="col-form-label" >Email:</label>
+                                        <input name="email" type="email" autocomplete="off" class="form-control" id="email">
+
+                                        <input name="user_type" type="hidden" value="Cliente">
+                                      </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                      <div class="form-group col-md-6">
+                                        <label for="password1" class="col-form-label" >Senha:</label>
+                                        <input name="password1" type="password" autocomplete="off" class="form-control" id="password1">
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="password2" class="col-form-label" >Confirmar senha:</label>
+                                        <input name="password2" type="password" autocomplete="off" class="form-control" id="password2">
+                                      </div>
+                                  </div>
+                            </div>
+
+                            <div class="card-body"><hr>
+                                 <button class="btn btn-success mr-3" type="submit" >Cadastrar</button>
+                                 <a class="btn btn-danger mr-3" href="{% url 'show_customer' %}">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+{% endblock %}

@@ -6,9 +6,9 @@ from Diary.models import *
 @login_required(login_url='login')
 def Index(request):
     user = request.user
-    user = Access.objects.get(email=user.email)
+    user = Access.objects.get(id=user.id)
 
-    engineer = Engineer.objects.get(user_access_id=user.id)
+    engineer = Engineer.objects.get(user_access=user)
     constructions = Construction.objects.filter(construction_company_engineer=engineer)
 
     if user.user_type == 'Engenheiro':

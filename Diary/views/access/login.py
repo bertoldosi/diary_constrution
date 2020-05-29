@@ -17,15 +17,22 @@ def Login(request):
 
         if user is not None:
 
-            if user.last_login is None:
+            if user.last_login is None and user.user_type is not None:
                 login(request, user)
                 if user.user_type == 'Engenheiro':
                     return redirect('register_engineer')
+
                 elif user.user_type == 'Cliente':
-                    return redirect('register_customer')
+                    return redirect('customer:index')
             else:
-                login(request, user)
-                return redirect('home_page')
+
+                if user.user_type == 'Engenheiro':
+                    login(request, user)
+                    return redirect('home_page')
+
+                elif user.user_type == 'Cliente':
+                    login(request, user)
+                    return redirect('customer:index')
         else:
             form_login = Login_form()
     else:

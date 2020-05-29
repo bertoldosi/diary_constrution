@@ -18,6 +18,7 @@ from Diary.views.diary.show_diary import Show_diary
 from Diary.views.diary.show_diary_information import Show_diary_information
 from Diary.views.diary.show_total_service import Show_total_service
 from Diary.views.enginner.edit_customer import Edit_engineer
+from Diary.views.enginner.enginner_register_customer import Enginner_register_customer
 from Diary.views.enginner.register_engineer import Register_engineer
 from Diary.views.enginner.show_customer import Show_engineer
 from Diary.views.home.home_page import Index
@@ -25,6 +26,7 @@ from Diary.views.access.login import Login
 from Diary.views.access.logout import Logout
 from Diary.views.access.recover_password import Recover_Password
 from Diary.views.user.access import Register_access
+from Diary.views.user.customer_register_access import Customer_register_access
 
 urlpatterns = [
     #Login
@@ -34,6 +36,7 @@ urlpatterns = [
     #User
     path('register_access', Register_access, name="register_access"),
     path('recover_password', Recover_Password, name="recover_password"),
+    path('customer_register_access', Customer_register_access, name="customer_register_access"),
     #Customer
     path('register_customer', Register_customer, name="register_customer"),
     path('show_customer', Show_customer, name="show_customer"),
@@ -42,6 +45,7 @@ urlpatterns = [
     path('register_engineer', Register_engineer, name="register_engineer"),
     path('show_engineer', Show_engineer, name="show_engineer"),
     path('edit_engineer', Edit_engineer, name="edit_engineer"),
+    path('enginner_register_customer/<user>', Enginner_register_customer, name="enginner_register_customer"),
     #Construction
     path('register_construction', Register_construction, name="register_construction"),
     path('show_constructions', Show_constructions, name="show_constructions"),
@@ -56,7 +60,7 @@ urlpatterns = [
     path('register_observation/<diary>', Register_observation, name="register_observation"),
     path('show_total_service/<diary>', Show_total_service, name="show_total_service"),
     path('show_diary', Show_diary, name="show_diary"),
-    path('show_diary_information', Show_diary_information, name="show_diary_information"),
+    path('show_diary_information/<id_diary>', Show_diary_information, name="show_diary_information"),
     path('delete_diary/<diary_id>', Delete_diary, name="delete_diary"),
 
     url(r'^ajax_calls/search/', autocompleteModel),

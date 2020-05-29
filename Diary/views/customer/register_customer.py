@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from Diary.entidades.customer import Customer
-from Diary.entidades.engineer import Engineer
 from Diary.forms.customer.register_customer_form import Customer_form
 from Diary.services import customer_service
 from Diary.models import Engineer
@@ -31,12 +30,12 @@ def autocompleteModel(request):
 
 @login_required(login_url='login')
 def Register_customer(request):
+    engineer = Engineer.objects.all()
     form_customer = Customer_form()
     user = request.user.id
 
     if request.method == 'POST':
         form_customer = Customer_form(data=request.POST)
-        engineer = Engineer.objects.all()
         if form_customer.is_valid():
             user_access = form_customer.cleaned_data['user_access']
             customer_name = form_customer.cleaned_data['customer_name']
@@ -46,7 +45,7 @@ def Register_customer(request):
 
             customer_service.Register_customer(customer)
 
-            return redirect('home_page')
+            return redirect('diary:index')
     else:
         form_customer = Customer_form()
     return render(request, 'Diary/customer/register_customer.html', locals())

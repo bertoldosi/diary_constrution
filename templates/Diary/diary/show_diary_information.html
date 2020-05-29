@@ -12,67 +12,18 @@
                       <div class="form-row">
                             <div class="form-group col-md-6">
                               <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">20/05/2020</p>
+                              <p type="date" id="diarioDtAtual">{{ diary.diary_date_day }}</p>
                             </div>
 
                             <div class="form-group col-md-6">
                               <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">5</p>
-                            </div>
-
-                      </div>
-
-                      <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">20/05/2020</p>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">5</p>
-                            </div>
-                      </div>
-
-                      <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">20/05/2020</p>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">5</p>
-                            </div>
-                      </div>
-
-                      <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">20/05/2020</p>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">5</p>
-                            </div>
-                      </div>
-
-                      <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">20/05/2020</p>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">5</p>
+                              <p type="date" id="diarioDtAtual">{{ diary.id }}</p>
                             </div>
                       </div>
             </div>
             <div class="card-body"><hr>
                  <a class="btn btn-primary mr-3" href="#">Imprimir</a>
-                 <a class="btn btn-warning mr-3" href="{% url 'show_diary' %}">Voltar</a>
+                 <a class="btn btn-warning mr-3" href="{% url 'register_diary' construction %}">Voltar</a>
             </div>
         </div>
     </main>
