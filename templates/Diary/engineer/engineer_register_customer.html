@@ -13,7 +13,7 @@
                                   <div class="form-row">
                                       <div class="form-group col-md-12">
                                         <label for="customer_name" class="col-form-label" >Nome:</label>
-                                        <input name="customer_name" type="text" autocomplete="off" class="form-control" id="customer_name">
+                                        <input name="customer_name" type="text" autocomplete="off" class="form-control" id="customer_name" required="required">
 
                                         <input name="user_access" type="hidden" value="{{ usuario.id }}">
                                         <input name="engineer" type="hidden" value="{{ enginner.id }}">
@@ -23,7 +23,7 @@
 
                             <div class="card-body"><hr>
                                  <button class="btn btn-success mr-3" type="submit" >Cadastrar</button>
-                                 <a class="btn btn-danger mr-3" href="{% url 'show_customer' %}">Cancelar</a>
+                                 <a class="btn btn-danger mr-3" href="{% url 'delete_user' usuario.id %}">Cancelar</a>
                             </div>
                         </form>
                     </div>

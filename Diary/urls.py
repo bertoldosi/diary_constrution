@@ -27,6 +27,7 @@ from Diary.views.access.logout import Logout
 from Diary.views.access.recover_password import Recover_Password
 from Diary.views.user.access import Register_access
 from Diary.views.user.customer_register_access import Customer_register_access
+from Diary.views.user.delete_user import Delete_user
 
 urlpatterns = [
     #Login
@@ -37,6 +38,7 @@ urlpatterns = [
     path('register_access', Register_access, name="register_access"),
     path('recover_password', Recover_Password, name="recover_password"),
     path('customer_register_access', Customer_register_access, name="customer_register_access"),
+    path('delete_user/<user_id>', Delete_user, name="delete_user"),
     #Customer
     path('register_customer', Register_customer, name="register_customer"),
     path('show_customer', Show_customer, name="show_customer"),
