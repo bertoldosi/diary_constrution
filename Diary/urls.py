@@ -42,7 +42,7 @@ urlpatterns = [
     #Customer
     path('register_customer', Register_customer, name="register_customer"),
     path('show_customer', Show_customer, name="show_customer"),
-    path('edit_customer', Edit_customer, name="edit_customer"),
+    path('edit_customer/<id_customer>', Edit_customer, name="edit_customer"),
     #Enginner
     path('register_engineer', Register_engineer, name="register_engineer"),
     path('show_engineer', Show_engineer, name="show_engineer"),

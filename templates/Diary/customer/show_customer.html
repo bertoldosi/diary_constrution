@@ -19,7 +19,7 @@
                                   {% for i in customers %}
                                     <tr>
                                       <th scope="row">{{ i }}</th>
-                                      <td><a class="btn btn-info mr-3" href="{% url 'edit_customer' %}">Editar</a></td>
+                                      <td><a class="btn btn-info mr-3" href="{% url 'edit_customer' i.id %}">Editar</a></td>
                                     </tr>
                                   {% endfor %}
                                   </tbody>
