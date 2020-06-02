@@ -7,13 +7,15 @@ from Diary.models import *
 
 @login_required(login_url='login')
 def Register_direct_labor(request, diary):
+    number_diary = int(diary)
+    direct_labor = Direct_labor.objects.filter(direct_labor_diary_id=number_diary)
 
     direct_labor_form = Direct_labor_Form()
     if request.method == 'POST':
         direct_labor_form = Direct_labor_Form(request.POST)
         if direct_labor_form.is_valid():
             direct_labor_form.save()
-            return redirect('register_indirect_labor', diary)
+            return redirect('register_direct_labor', diary)
 
         else:
             HttpResponse('Formulário inválido!')

@@ -7,12 +7,14 @@ from Diary.models import *
 
 @login_required(login_url='login')
 def Register_equipment(request, diary):
+    number_equipment = int(diary)
+    equipment_construction = Equipment_construction.objects.filter(equipment_construction_diary_id=number_equipment)
     equipment_construction_form = Equipment_construction_form()
     if request.method == 'POST':
         equipment_construction_form = Equipment_construction_form(request.POST)
         if equipment_construction_form.is_valid():
             equipment_construction_form.save()
-            return redirect('register_equipment_contractor', diary)
+            return redirect('register_equipment', diary)
 
         else:
             HttpResponse('Formulário inválido!')

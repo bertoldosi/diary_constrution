@@ -8,26 +8,67 @@
                             <li class="breadcrumb-item active">Cadastro de Mão de Obra Direta</li>
                         </ol>
 
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="modal-body">
-                                  <div class="form-group">
-                                    <label for="direct_labor_description" class="col-form-label" >Descrição:</label>
-                                    <input name="direct_labor_description" type="text" class="form-control" id="direct_labor_description" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="direct_labor_amount" class="col-form-label">Quantidade:</label>
-                                    <input name="direct_labor_amount" type="number" class="form-control" id="direct_labor_amount" value="0">
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                          <div class="modal-header text-white bg-dark">
+                                                <h5 class="modal-title" id="exampleModalLabel">Cadastrar</h5>
+                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                          </div>
+                                          <form method="post">{% csrf_token %}
+                                              <div class="modal-body">
 
-                                    <input name="direct_labor_diary" type="hidden" value="{{ diary }}">
-                                  </div>
-                            </div>
-                            <div class="card-body"><hr>
-                                 <button class="btn btn-success mr-3" type="submit">Cadastrar</button>
-                                 <a class="btn btn-danger mr-3" href="{% url 'delete_diary' diary %}">Cancelar</a>
-                            </div>
-                        </form>
+                                                        <div class="modal-body">
+                                                              <div class="form-group">
+                                                                <label for="direct_labor_description" class="col-form-label" >Descrição:</label>
+                                                                <input name="direct_labor_description" type="text" class="form-control" id="direct_labor_description" onkeyup="this.value=this.value.toUpperCase();" value="NÃO ESPECIFICADO">
+                                                              </div>
+                                                              <div class="form-group">
+                                                                <label for="direct_labor_amount" class="col-form-label">Quantidade:</label>
+                                                                <input name="direct_labor_amount" type="number" class="form-control" id="direct_labor_amount" value="0">
 
+                                                                <input name="direct_labor_diary" type="hidden" value="{{ diary }}">
+                                                              </div>
+                                                        </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                  <button class="btn btn-success mr-3" type="submit">Cadastrar</button>
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                              </div>
+                                          </form>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-hover table-dark mt-5 mb-5">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Descrição</th>
+                                      <th scope="col">Quantidade</th>
+                                      <th scope="col">Remover</th>
+                                    </tr>
+                                  </thead>
+
+                                  <tbody>
+                                    {% for i in direct_labor %}
+                                        <tr>
+                                          <th>{{ i.direct_labor_description }}</th>
+                                          <td>{{ i.direct_labor_amount }}</td>
+                                          <td><a class="btn btn-danger mr-3" href="#">X</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                  </tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Cadastrar</button>
+
+                            <div class="modal-footer mt-5">
+                                <a class="btn btn-danger mr-3" href="{% url 'delete_diary' diary %}">Cancelar</a>
+                                <a class="btn btn-success mr-3" href="{% url 'register_indirect_labor' diary %}">Prosseguir >></a>
+                            </div>
+                        </div>
                     </div>
                 </main>
 {% endblock %}
