@@ -6,7 +6,12 @@ from Diary.views.construction.show_constructions import Show_constructions
 from Diary.views.customer.edit_customer import Edit_customer
 from Diary.views.customer.register_customer import Register_customer, autocompleteModel
 from Diary.views.customer.show_customer import Show_customer
+from Diary.views.diary.delete_contractor_equipment import Delete_contractor_equipment
+from Diary.views.diary.delete_contractor_labor import Delete_contractor_labor
 from Diary.views.diary.delete_diary import Delete_diary
+from Diary.views.diary.delete_direct_labor import Delete_direct_labor
+from Diary.views.diary.delete_equipment import Delete_equipment
+from Diary.views.diary.delete_indirect_labor import Delete_indirect_labor
 from Diary.views.diary.register_climate import Register_climate
 from Diary.views.diary.register_contractor_equipment import Register_equipment_contractor
 from Diary.views.diary.register_contractor_labor import Register_contractor_labor
@@ -62,10 +67,19 @@ urlpatterns = [
     path('register_equipment_contractor/<diary>', Register_equipment_contractor, name="register_equipment_contractor"),
     path('register_climate/<diary>', Register_climate, name="register_climate"),
     path('register_observation/<diary>', Register_observation, name="register_observation"),
+
+    path('delete_diary/<diary_id>', Delete_diary, name="delete_diary"),
+    path('delete_direct_labor/<diary>/<direct_labor_id>', Delete_direct_labor, name="delete_direct_labor"),
+    path('delete_indirect_labor/<diary>/<indirect_labor_id>', Delete_indirect_labor, name="delete_indirect_labor"),
+    path('delete_contractor_labor/<diary>/<contractor_labor_id>', Delete_contractor_labor, name="delete_contractor_labor"),
+    path('delete_equipment/<diary>/<equipment_id>', Delete_equipment, name="delete_equipment"),
+    path('delete_equipment_contractor/<diary>/<equipment_contractor_id>', Delete_contractor_equipment, name="delete_equipment_contractor"),
+
+
     path('show_total_service/<diary>', Show_total_service, name="show_total_service"),
     path('show_diary', Show_diary, name="show_diary"),
     path('show_diary_information/<id_diary>', Show_diary_information, name="show_diary_information"),
-    path('delete_diary/<diary_id>', Delete_diary, name="delete_diary"),
+
 
     url(r'^ajax_calls/search/', autocompleteModel),
 ]

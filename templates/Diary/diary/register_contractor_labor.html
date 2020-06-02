@@ -55,7 +55,7 @@
                                         <tr>
                                           <th>{{ i.contractor_labor_description }}</th>
                                           <td>{{ i.contractor_labor_amount }}</td>
-                                          <td><a class="btn btn-danger mr-3" href="#">X</a></td>
+                                          <td><a class="btn btn-danger mr-3" href="{% url 'delete_contractor_labor' diary i.id %}">X</a></td>
                                         </tr>
                                     {% endfor %}
                                   </tbody>
