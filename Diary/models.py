@@ -9,10 +9,11 @@ class Access(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField('Email', unique=True)
     user_type = models.CharField('Tipo', max_length=50)
+    registration_mode = models.IntegerField('Status do usuario', null=True, blank=True)
 
     USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['user_type']
+    REQUIRED_FIELDS = ['user_type', 'registration_mode']
 
     def __str__(self):
         return self.email
@@ -22,6 +23,13 @@ class Engineer(models.Model):
     user_access = models.ForeignKey(Access, on_delete=models.CASCADE)
 
     engineer_name = models.CharField('Nome do engenheiro', max_length=50)
+    engineer_cnpj = models.CharField('CNPJ', max_length=50)
+    engineer_contact = models.CharField('Número de Contato', max_length=50)
+    engineer_street = models.CharField('Rua', max_length=50)
+    engineer_number = models.IntegerField('Número')
+    engineer_city = models.CharField('Cidade', max_length=50)
+    engineer_state = models.CharField('Estado', max_length=50)
+    engineer_cod = models.CharField('CEP', max_length=50)
 
     def __str__(self):
         return self.engineer_name
@@ -33,6 +41,13 @@ class Customer(models.Model):
     engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE)
 
     customer_name = models.CharField('Nome do cliente', max_length=50)
+    customer_cnpj = models.CharField('CNPJ', max_length=50)
+    customer_contact = models.CharField('Número de Contato', max_length=50)
+    customer_street = models.CharField('Rua', max_length=50)
+    customer_number = models.IntegerField('Número')
+    customer_city = models.CharField('Cidade', max_length=50)
+    customer_state = models.CharField('Estado', max_length=50)
+    customer_cod = models.CharField('CEP', max_length=50)
 
     def __str__(self):
         return self.customer_name

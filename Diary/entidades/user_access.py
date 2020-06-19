@@ -1,7 +1,8 @@
 class Access:
-    def __init__(self, email, user_type, password):
+    def __init__(self, email, user_type, password, registration_mode):
         self.__email = email
         self.__user_type = user_type
+        self.__registration_mode = registration_mode
         self.__password = password
 
     @property
@@ -29,3 +30,12 @@ class Access:
     @user_type.setter
     def user_type(self, user_type):
         self.__user_type = user_type
+
+    # ----------------------------------------------------------------------------------------------------------------
+    @property
+    def registration_mode(self):
+        return self.__registration_mode
+
+    @registration_mode.setter
+    def registration_mode(self, registration_mode):
+        self.__registration_mode = registration_mode

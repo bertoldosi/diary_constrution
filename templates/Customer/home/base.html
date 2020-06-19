@@ -16,10 +16,11 @@
 
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home_page' %}">DIÁRIO DE OBRAS</a> <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="{% url 'customer:index' %}">DIÁRIO DE OBRAS <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+            </a> <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></form>
-            <strong style="color: white">{{ request.user }}</strong>
 
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
@@ -42,14 +43,14 @@
                         <div class="nav">
                               <div class="sb-sidenav-menu-heading">CONTROLES</div><hr>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{% url 'customer:list_customer' %}">
                                   <!--<i class="fas fa-fw fas fa-user-edit"></i>-->
                                   <span>Perfil</span></a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#">
                                   <!--<i class="fas fa-fw fas fa-car"></i>-->
-                                  <span>Avisos</span></a>
+                                  <span>Relatórios</span></a>
                               </li>
 
                         </div>

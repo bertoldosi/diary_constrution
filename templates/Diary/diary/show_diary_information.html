@@ -9,17 +9,76 @@
             </ol>
 
             <div class="modal-body">
-                      <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
-                              <p type="date" id="diarioDtAtual">{{ diary.diary_date_day }}</p>
+                  <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label class="col-form-label" for="diarioDtAtual">DATA ATUAL:</label>
+                          <p type="date" id="diarioDtAtual">{{ diary.diary_date_day }}</p>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
+                          <p type="date" id="diarioDtAtual">{{ diary.id }}</p>
+                        </div>
+                  </div><hr>
+
+                  <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label class="col-form-label" for="direct_labor">MÃO DE OBRA DIRETA:</label>
+                              {% for i in  direct_labor%}
+                                <p id="direct_labor">{{ i.direct_labor_description }}</p>
+                              {% endfor %}
                             </div>
 
-                            <div class="form-group col-md-6">
-                              <label class="col-form-label" for="diarioNumDiario">NÚMERO DO DIÁRIO:</label>
-                              <p type="date" id="diarioDtAtual">{{ diary.id }}</p>
+                            <div class="form-group col-md-4">
+                              <label class="col-form-label" for="indirect_labor">MÃO DE OBRA INDIRETA:</label>
+                              {% for i in indirect_labor %}
+                                <p id="indirect_labor">{{ i.indirect_labor_description }}</p>
+                              {% endfor %}
                             </div>
-                      </div>
+
+                            <div class="form-group col-md-4">
+                              <label class="col-form-label" for="contractor_labor">MÃO DE OBRA DE EMPREITEIRAS:</label>
+                              {% for i in contractor_labor %}
+                                <p id="contractor_labor">{{ i.contractor_labor_description }}</p>
+                              {% endfor %}
+                            </div>
+                  </div><hr>
+
+                  <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label class="col-form-label" for="equipment_construction">EQUIPAMENTOS DA OBRA:</label>
+                              {% for i in equipment_construction %}
+                                <p id="equipment_construction">{{ i.equipment_construction_description }}</p>
+                              {% endfor %}
+                            </div>
+
+                            <div class="form-group col-md-4">
+                              <label class="col-form-label" for="contractor_equipment">EQUIPAMENTOS DE EMPREITEIRAS:</label>
+                              {% for i in contractor_equipment %}
+                                <p id="contractor_equipment">{{ i.contractor_equipment_description }}</p>
+                              {% endfor %}
+                            </div>
+
+                            <div class="form-group col-md-2">
+                              <label class="col-form-label" for="total_service">TOTAL DE SERVIÇOS:</label>
+                              <p type="date" id="total_service">Equipametos({{ total_service.total_service_equipment }}) UN</p>
+                              <p type="date" id="total_service">Mão de Obra({{ total_service.total_service_manpower }}) UN</p>
+                            </div>
+                  </div><hr>
+
+                  <div class="form-row">
+                            <div class="form-group col-md-2">
+                              <label class="col-form-label" for="diarioDtAtual">CLIMA:</label>
+                              <p type="date" id="diarioDtAtual">MANHÃ ({{ climate.climate_morning }})</p>
+                              <p type="date" id="diarioDtAtual">TARDE ({{ climate.climate_evening }})</p>
+                            </div>
+
+                            <div class="form-group col-md-10">
+                              <label class="col-form-label" for="diarioNumDiario">OBSERVAÇÕES:</label>
+                              <p type="date" id="diarioDtAtual">DESCRIÇÃO: {{ observation.observation_description_service }}</p>
+                              <p type="date" id="diarioDtAtual">OBSERVAÇÃO: {{ observation.observation_description }}</p>
+                            </div>
+                  </div>
             </div>
             <div class="card-body"><hr>
                  <a class="btn btn-primary mr-3" href="#">Imprimir</a>

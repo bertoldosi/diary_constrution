@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from Diary.entidades.customer import Customer
-from Diary.forms.customer.register_customer_form import Customer_form
+from Customer.forms.customer.register_customer_form import Customer_form
 from Diary.services import customer_service
 from Diary.models import *
 
@@ -21,10 +21,27 @@ def Enginner_register_customer(request, user):
         form_customer = Customer_form(data=request.POST)
         if form_customer.is_valid():
             user_access = form_customer.cleaned_data['user_access']
-            customer_name = form_customer.cleaned_data['customer_name']
             engineer = form_customer.cleaned_data['engineer']
+            customer_name = form_customer.cleaned_data['customer_name']
+            customer_cnpj = form_customer.cleaned_data['customer_cnpj']
+            customer_contact = form_customer.cleaned_data['customer_contact']
+            customer_street = form_customer.cleaned_data['customer_street']
+            customer_number = form_customer.cleaned_data['customer_number']
+            customer_city = form_customer.cleaned_data['customer_city']
+            customer_state = form_customer.cleaned_data['customer_state']
+            customer_cod = form_customer.cleaned_data['customer_cod']
 
-            customer = Customer(user_access=user_access, customer_name=customer_name, engineer=engineer)
+            customer = Customer(user_access=user_access,
+                                engineer=engineer,
+                                customer_name=customer_name,
+                                customer_cnpj=customer_cnpj,
+                                customer_contact=customer_contact,
+                                customer_street=customer_street,
+                                customer_number=customer_number,
+                                customer_city=customer_city,
+                                customer_state=customer_state,
+                                customer_cod=customer_cod,
+                                )
 
             customer_service.Register_customer(customer)
 

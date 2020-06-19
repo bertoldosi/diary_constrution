@@ -11,9 +11,10 @@ def Register_access(request):
         if form_access.is_valid():
             email = form_access.cleaned_data['email']
             user_type = form_access.cleaned_data['user_type']
+            registration_mode = form_access.cleaned_data['registration_mode']
             password = form_access.cleaned_data['password1']
 
-            access_new = Access(email=email, password=password, user_type=user_type)
+            access_new = Access(email=email, password=password, user_type=user_type, registration_mode=registration_mode)
 
             access_service.Register_access(access_new)
 

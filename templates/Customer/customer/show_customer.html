@@ -1,0 +1,35 @@
+{% extends 'Diary/home/base.html' %}
+{% load static %}
+{% block title %}Clientes{% endblock %}
+                {% block conteudo %}
+                <main>
+                    <div class="container-fluid">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Clientes</li>
+                        </ol>
+                        <div class="modal-body">
+                            <table class="table table-hover table-dark">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Nome</th>
+                                      <th scope="col">Ações</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for i in customers %}
+                                    <tr>
+                                      <th scope="row">{{ i }}</th>
+                                      <td><a class="btn btn-info mr-3" href="{% url 'edit_customer' i.id %}">Editar</a></td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card-body"><hr>
+                            <a class="btn btn-success mr-3" href="{% url 'customer_register_access' %}">Cadastrar</a>
+                        </div>
+                    </div>
+                </main>
+                {% endblock %}
+

@@ -1,4 +1,4 @@
-{% extends 'Diary/home/base.html' %}
+{% extends 'Customer/home/base.html' %}
 {% load static %}
 {% block title %}Editando Cliente{% endblock %}
 {% block conteudo %}
@@ -61,7 +61,7 @@
                             </div>
                             <div class="card-body"><hr>
                                  <button class="btn btn-success mr-3" type="submit">Editar</button>
-                                 <a class="btn btn-danger mr-3" href="{% url 'show_customer' %}">Cancelar</a>
+                                 <a class="btn btn-danger mr-3" href="{% url 'customer:list_customer' %}">Cancelar</a>
                             </div>
                         </form>
                     </div>

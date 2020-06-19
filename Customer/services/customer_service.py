@@ -1,4 +1,4 @@
-from ..models import Customer
+from Diary.models import Customer
 
 
 def Register_customer(customer):

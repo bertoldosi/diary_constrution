@@ -23,51 +23,43 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Registrar acesso</div>
       <div class="card-body">
         <form method="post"> {% csrf_token %}
 
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
+          <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label class="col-form-label" for="user_access_email">Email</label>
                   <input name="email" type="email" id="user_access_email" class="form-control" placeholder="Ex: jose@gmail.com" required="required">
-                  <label for="user_access_email">Email</label>
+                  <input type="hidden" name="registration_mode" value="0">
                 </div>
-              </div>
-            </div>
           </div>
 
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  <input name="user_type" type="text" id="user_type" class="form-control" required="required">
-                  <label for="user_type">Tipo</label>
+          <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label class="col-form-label" for="user_type">Tipo</label>
+                  <select name="user_type" type="text" id="user_type" class="form-control" required="required">
+                      <option value="Engenheiro">Engenheiro</option>
+                      <option value="Cliente" selected>Cliente</option>
+                  </select>
                 </div>
-              </div>
-            </div>
           </div>
 
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input name="password1" type="text" id="password1" class="form-control" placeholder="password1" required="required">
-                  <label for="password1">password1</label>
+          <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="password1">Senha</label>
+                  <input name="password1" type="password" id="password1" class="form-control" placeholder="Digite sua senha" required="required">
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input name="password2" type="text" id="password2" class="form-control" placeholder="password2" required="required">
-                  <label for="password2">password2</label>
+
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="password2">Confirmar senha</label>
+                  <input name="password2" type="password" id="password2" class="form-control" placeholder="Confirme sua senha" required="required">
                 </div>
-              </div>
-            </div>
           </div>
 
-            <button class="btn btn-primary btn-block" type="submit">Registrar</button>
+          <button class="btn btn-primary btn-block" type="submit">Registrar</button>
         </form>
+
         <div class="text-center">
           <a class="d-block small mt-3" href="{% url 'login' %}">Logar</a>
           <a class="d-block small" href="{% url 'recover_password' %}">Recuperar senha?</a>

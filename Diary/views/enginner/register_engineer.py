@@ -15,8 +15,24 @@ def Register_engineer(request):
 
             user_access = form_engineer.cleaned_data['user_access']
             engineer_name = form_engineer.cleaned_data['engineer_name']
+            engineer_cnpj = form_engineer.cleaned_data['engineer_cnpj']
+            engineer_contact = form_engineer.cleaned_data['engineer_contact']
+            engineer_street = form_engineer.cleaned_data['engineer_street']
+            engineer_number = form_engineer.cleaned_data['engineer_number']
+            engineer_city = form_engineer.cleaned_data['engineer_city']
+            engineer_state = form_engineer.cleaned_data['engineer_state']
+            engineer_cod = form_engineer.cleaned_data['engineer_cod']
 
-            engineer = Engineer(user_access=user_access, engineer_name=engineer_name)
+            engineer = Engineer(user_access=user_access,
+                                engineer_name=engineer_name,
+                                engineer_cnpj=engineer_cnpj,
+                                engineer_contact=engineer_contact,
+                                engineer_street=engineer_street,
+                                engineer_number=engineer_number,
+                                engineer_city=engineer_city,
+                                engineer_state=engineer_state,
+                                engineer_cod=engineer_cod,
+                                )
 
             engineer_service.Register_engineer(engineer)
 

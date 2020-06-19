@@ -8,7 +8,7 @@ class Access_form(forms.ModelForm):
 
     class Meta:
         model = Access
-        fields = ('email', 'user_type', 'last_login', )
+        fields = ('email', 'user_type', 'registration_mode', 'last_login',)
 
     # verificar se as duas senha são iguais
     def clean_password2(self):

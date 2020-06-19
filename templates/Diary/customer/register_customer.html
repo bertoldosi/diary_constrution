@@ -10,13 +10,13 @@
   <meta name="description" contentaccess="">
   <meta name="author" content="">
 
-  <title>Concluíndo - Register</title>
+  <title>Concluíndo registro</title>
 
   <!-- Custom fonts for this template-->
-  <link href="static/access/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{%  static 'access/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
-  <link href="static/access/css/sb-admin.css" rel="stylesheet">
+  <link href="{%  static 'access/css/sb-admin.css' %}" rel="stylesheet">
 
   <!-- css search -->
 
@@ -50,24 +50,19 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Concluíndo registro cliente</div>
+      <div class="card-header">Concluíndo registro</div>
       <div class="card-body">
         <form method="post"> {% csrf_token %}
 
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <label for="customer_name">Nome</label>
-                <div class="form-label-group">
+          <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label class="col-form-label" for="customer_name">Nome</label>
                   <input name="customer_name" type="text" id="customer_name" class="form-control" required="required">
                   <input name="user_access" type="hidden" value="{{ user }}">
                 </div>
-              </div>
-            </div>
           </div>
 
-          <div class="form-group">
-            <div class="form-row">
+          <div class="form-row">
               <div class="form-group col-md-12">
                       <label for="engineer_name">Engenheiro:</label>
                       <input name="engineer" list="lista" id="engineer_name" class="form-control" required="required">
@@ -78,10 +73,52 @@
                           {% endfor %}
                       </datalist>
               </div>
-            </div>
           </div>
+
+          <div class="form-row">
+                <div class="form-group col-md-7">
+                  <label class="col-form-label" for="customer_cnpj">CNPJ</label>
+                  <input name="customer_cnpj" type="text" id="customer_cnpj" class="form-control" required="required">
+                </div>
+
+                <div class="form-group col-md-5">
+                  <label class="col-form-label" for="customer_contact">Contato</label>
+                  <input name="customer_contact" type="text" id="customer_contact" class="form-control" required="required">
+                </div>
+          </div>
+
+          <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label class="col-form-label" for="customer_street">Endereço</label>
+                  <input name="customer_street" type="text" id="customer_street" class="form-control" required="required">
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label class="col-form-label" for="customer_number">Número</label>
+                  <input name="customer_number" type="number" id="customer_number" class="form-control" required="required">
+                </div>
+          </div>
+
+          <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="customer_city">Cidade</label>
+                  <input name="customer_city" type="text" id="customer_city" class="form-control" required="required">
+                </div>
+
+                <div class="form-group col-md-2">
+                  <label class="col-form-label" for="customer_state">Estado</label>
+                  <input name="customer_state" type="text" id="customer_state" class="form-control" required="required">
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label class="col-form-label" for="customer_cod">CEP</label>
+                  <input name="customer_cod" type="text" id="customer_cod" class="form-control" required="required">
+                </div>
+          </div>
+
           <button class="btn btn-primary btn-block" type="submit">Concluir</button>
         </form>
+
         <div class="text-center">
           <a class="d-block small mt-3" href="{% url 'login' %}">Logar</a>
           <a class="d-block small" href="{% url 'recover_password' %}">Recuperar senha?</a>
