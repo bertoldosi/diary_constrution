@@ -83,7 +83,7 @@ def Edit_customer(request, id_customer):
     form = Customer_form(request.POST or None, instance=customer)
     if form.is_valid():
         form.save()
-        return redirect('customer:list_customer')
+        return redirect('customer:profile')
     return render(request, 'Customer/customer/edit_customer.html', locals())
 
 
@@ -101,5 +101,11 @@ def Change_password(request):
     form = Access_form(request.POST or None, instance=user)
     if form.is_valid():
         form.save()
-        return redirect('customer:list_customer')
+        return redirect('customer:index')
     return render(request, 'Customer/customer/change_password.html', locals())
+
+
+@login_required(login_url='login')
+def Profile(request):
+    customer = Customer.objects.get(user_access_id=request.user.id)
+    return render(request, 'Customer/home/profile.html', locals())
