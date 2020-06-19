@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-br">
 
 <head>
 
@@ -12,10 +13,10 @@
   <title>SB Admin - Register</title>
 
   <!-- Custom fonts for this template-->
-  <link href="static/access/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'diary/access/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
-  <link href="static/access/css/sb-admin.css" rel="stylesheet">
+  <link href="{% static 'diary/access/css/sb-admin.css' %}" rel="stylesheet">
 
 </head>
 
@@ -69,11 +70,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="static/access/js/jquery.min.js"></script>
-  <script src="static/access/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'diary/access/js/jquery.min.js' %}"></script>
+  <script src="{% static 'diary/access/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="static/access/js/jquery.easing.min.js"></script>
+  <script src="{% static 'diary/access/js/jquery.easing.min.js' %}"></script>
 
 </body>
 
