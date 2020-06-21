@@ -1,87 +1,26 @@
-<form method="post">
-                                  {% csrf_token %}
-                                  <div class="form-row">
-                                      <div class="form-group col-md-6">
-                                        <label for="empClienteRazao" class="col-form-label" >Razão Social:</label>
-                                        <input name="empClienteRazao" type="text" class="form-control" id="empClienteRazao" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.empClienteRazao }}">
-                                      </div>
-                                      <div class="form-group col-md-6">
-                                        <label for="empClienteCNPJ" class="col-form-label" >CNPJ:</label>
-                                        <input name="empClienteCNPJ" type="text" class="form-control" id="empClienteCNPJ" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.empClienteCNPJ }}">
-                                      </div>
-                                  </div>
+<div class="rowProject">
+                                        {% for i in constructions %}
+                                            <div class="margem">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 70%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                                </div><br>
 
-                                  <div class="form-row">
-                                      <div class="form-group col-md-6">
-                                        <label for="empClienteRespon" class="col-form-label" >Responsavel:</label>
-                                        <input name="empClienteRespon" type="text" class="form-control" id="empClienteRespon" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.empClienteRespon }}">
-                                      </div>
-                                      <div class="form-group col-md-6">
-                                        <label for="empClienteContato" class="col-form-label" >Contato:</label>
-                                        <input name="empClienteContato" type="text" class="form-control" id="empClienteContato" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.empClienteContato }}">
-                                      </div>
-                                  </div>
+                                                <div class="card bg-primary text-white mb-4">
+                                                    <div class="stalyProject">
+                                                        <span class="text-white">Descrição:</span>
+                                                        <p class="text-secondary">{{ i.construction_name }}</p>
+                                                        <span class="text-white">Cliente:</span>
+                                                        <p class="text-secondary">{{ i.construction_company_customer.customer_name }}</p>
 
-                                  <div class="form-row">
-                                      <div class="form-group col-md-8">
-                                        <label for="empClienteEmail" class="col-form-label" >Email:</label>
-                                        <input name="empClienteEmail" type="email" class="form-control" id="empClienteEmail" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.empClienteEmail }}">
-                                      </div>
-                                      <div class="form-group col-md-4">
-                                        <label for="endCEP" class="col-form-label" >CEP:</label>
-                                        <input name="endCEP" type="text" class="form-control" id="endCEP" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.endCEP }}">
-                                      </div>
-                                  </div>
+                                                        Início: <p class="text-secondary">{{ i.construction_date_start }}</p>
+                                                        Término: <p class="text-secondary">{{ i.construction_date_start }}</p>
+                                                    </div>
 
-                                  <div class="form-row">
-                                      <div class="form-group col-md-10">
-                                        <label for="endRua" class="col-form-label" >Rua:</label>
-                                        <input name="endRua" type="text" class="form-control" id="endRua" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.endRua }}">
-                                      </div>
-                                      <div class="form-group col-md-2">
-                                        <label for="endNum" class="col-form-label" >Número:</label>
-                                        <input name="endNum" type="number" class="form-control" id="endNum" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.endNum }}">
-                                      </div>
-                                  </div>
-
-                                  <div class="form-row">
-                                      <div class="form-group col-md-10">
-                                        <label for="endCidade" class="col-form-label" >Cidade:</label>
-                                        <input name="endCidade" type="text" class="form-control" id="endCidade" onkeyup="this.value=this.value.toUpperCase();" value="{{ cliente.endCidade }}">
-                                      </div>
-                                      <div class="form-group col-md-2">
-                                          <label class="col-form-label" for="endEstado">Estado:</label>
-                                          <select name="endEstado" id="endEstado"  class="form-control">
-                                            <option selected>{{ cliente.endEstado }}</option>
-                                            <option>AC</option>
-                                            <option>AL</option>
-                                            <option>AL</option>
-                                            <option>AM</option>
-                                            <option>BA</option>
-                                            <option>CE</option>
-                                            <option>DF</option>
-                                            <option>ES</option>
-                                            <option>GO</option>
-                                            <option>MA</option>
-                                            <option>MT</option>
-                                            <option>MS</option>
-                                            <option>MG</option>
-                                            <option>PA</option>
-                                            <option>PB</option>
-                                            <option>PR</option>
-                                            <option>PE</option>
-                                            <option>PI</option>
-                                            <option>RJ</option>
-                                            <option>RN</option>
-                                            <option>RS</option>
-                                            <option>RO</option>
-                                            <option></option>
-                                            <option></option>
-                                          </select>
-                                      </div>
-                                  </div>
-                            <div class="card-body"><hr>
-                                 <a class="btn btn-success mr-3" href="{% url 'register_direct_labor' %}">Cadastrar</a>
-                                 <a class="btn btn-danger mr-3" href="{% url 'home_page' %}">Cancelar</a>
-                            </div>
-                        </form>
+                                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                                        <a class="small text-white stretched-link" href="{% url 'register_diary' i.id %}">Relatar</a>
+                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>

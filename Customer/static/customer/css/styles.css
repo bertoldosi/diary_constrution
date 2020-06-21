@@ -7623,6 +7623,12 @@ button.bg-dark:focus {
   margin-top: 3rem !important;
 }
 
+.mt-10,
+.my-10 {
+  margin-top: 10rem !important;
+}
+
+
 .mr-5,
 .mx-5 {
   margin-right: 3rem !important;
@@ -10268,4 +10274,21 @@ form .row:first-child .floating-label-form-group {
   flex-wrap: wrap;
   margin-right: -1.5rem;
   margin-left: -1.5rem;
+}
+
+.card-bodyProject {
+  justify-content: right;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.margem{
+  margin: 10%;
+}
+
+.stalyProject{
+  text-align: left;
+  padding: 10%;
 }

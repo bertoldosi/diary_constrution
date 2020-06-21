@@ -28,53 +28,51 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#page-top">Início</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Projeto</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'customer:profile' %}">Perfil</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'customer:index' %}">Início</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}">Sair</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{% static 'customer/assets/img/avataaars.svg' %}" alt="" />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Seja Bem-Vindo</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">{{ customer.customer_name }}</p>
-            </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Projetos</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
+        </nav><br>
 
-                <!-- Portfolio Grid Items-->
-                <div class="rowProject">
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto">
-                            <img class="img-fluid" src="{% static 'customer/assets/img/portfolio/cabin.png' %}" alt="" />
-                            <div class="card-body"><hr>
-                                 <a class="btn btn-primary mr-3" href="{% url 'customer:list_project' %}">Visualizar</a>
-                            </div>
+         <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="mt-10">
+                <div class="container mt-5">
+                    <!-- Contact Section Heading-->
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Projetos</h2>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <!-- Contact Section Form-->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Descrição</th>
+                                  <th scope="col">Inicio</th>
+                                  <th scope="col">Término</th>
+                                  <th scope="col">Diário</th>
+                                </tr>
+                              </thead>
+                                <tbody>
+                                {% for i in constructions %}
+                                    <tr>
+                                      <td>{{ i.construction_name }}</td>
+                                      <td>{{ i.construction_date_start }}</td>
+                                      <td>{{ i.construction_date_start }}</td>
+                                      <td><a class="btn btn-primary mr-3" href="{% url 'customer:list_diary' i.id %}">Ver</a></td>
+                                    </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table><hr>
+                        <a class="btn btn-danger mr-3" href="{% url 'customer:index' %}">Voltar</a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -87,10 +85,9 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Endereço</h4>
                         <p class="lead mb-0">
-                            {{ engineer.engineer_street }}, {{ engineer.engineer_number }}
+                            2215 John Daniel Drive
                             <br />
-                            {{ engineer.engineer_city }}, {{ engineer.engineer_state }}<br>
-                            {{ engineer.engineer_cod }}
+                            Clark, MO 65243
                         </p>
                     </div>
                     <!-- Footer Social Icons-->

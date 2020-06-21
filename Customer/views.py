@@ -12,7 +12,11 @@ from Diary.models import *
 def Index(request):
     user = request.user
     user = Access.objects.get(id=user.id)
+
     customer = Customer.objects.get(user_access_id=user.id)
+    engineer = Engineer.objects.get(id=customer.engineer.id)
+
+    constructions = Construction.objects.filter(construction_company_customer_id=customer.id)
 
     return render(request, 'Customer/home/index.html', locals())
 
@@ -109,3 +113,42 @@ def Change_password(request):
 def Profile(request):
     customer = Customer.objects.get(user_access_id=request.user.id)
     return render(request, 'Customer/home/profile.html', locals())
+
+
+@login_required(login_url='login')
+def List_project(request):
+    user = request.user
+    user = Access.objects.get(id=user.id)
+
+    customer = Customer.objects.get(user_access_id=user.id)
+    engineer = Engineer.objects.get(id=customer.engineer.id)
+
+    constructions = Construction.objects.filter(construction_company_customer_id=customer.id)
+
+    return render(request, 'Customer/home/list_project.html', locals())
+
+
+@login_required(login_url='login')
+def List_diary(request, id_construction):
+
+    diary = Diary.objects.filter(diary_construction_id=id_construction)
+
+    return render(request, 'Customer/home/list_diary.html', locals())
+
+
+@login_required(login_url='login')
+def Show_diary(request, id_diary):
+
+    diary = Diary.objects.get(id=id_diary)
+    direct_labor = Direct_labor.objects.filter(direct_labor_diary_id=id_diary)
+    indirect_labor = Indirect_labor.objects.filter(indirect_labor_diary_id=id_diary)
+    contractor_labor = Contractor_labor.objects.filter(contractor_labor_diary_id=id_diary)
+    equipment_construction = Equipment_construction.objects.filter(equipment_construction_diary_id=id_diary)
+    contractor_equipment = Contractor_equipment.objects.filter(contractor_equipment_diary_id=id_diary)
+    climate = Climate.objects.get(climate_diary_id=id_diary)
+    total_service = Total_service.objects.get(total_service_diary_id=id_diary)
+    observation = Observation.objects.get(observation_diary_id=id_diary)
+    
+    return render(request, 'Customer/home/show_diary.html', locals())
+
+
