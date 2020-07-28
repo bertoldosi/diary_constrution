@@ -55,15 +55,6 @@
           <a class="d-block small mt-3" href="{% url 'register_access' %}">Registrar</a>
           <a class="d-block small" href="{% url 'recover_password' %}">Recuper senha?</a>
         </div>
-        <div>
-            {% for i in usuarios %}
-                <di>
-                    <h5>Email: {{ i.email }}</h5>
-                    <h5>Tipo: {{ i.user_type }}</h5>
-                    <h5>Acesso: {{ i.last_login }}</h5>
-                </di><hr><br>
-            {% endfor %}
-        </div>
       </div>
     </div>
   </div>
