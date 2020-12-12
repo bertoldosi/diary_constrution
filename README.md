@@ -1,16 +1,31 @@
-# Diário de Obras
+## 📖 Sobre:
+
+Uma aplicação desenvolvida para auxiliar um engenheiro em registrar suas atividades diárias.
 
 
+--- 
 
-## Principais funcionalidades
+## ⚙️ Funcionalidades:
 
-- Realizar cadastro de clientes
-- Realizar cadastro de equipamentos
-- Realizar registro de atividades
-- Consultar andamento da obras
+- [x] Realizar cadastro de clientes
+- [x] Realizar cadastro de equipamentos
+- [x] Realizar registro de atividades
+- [x] Consultar andamento da obras
+
+--- 
+
+## 🚀 Tecnologias Utilizadas:
+
+- HTML
+- CSS
+- Bootstrap
+- Python
+- Django
+- Sqlite
 
 
-
-## Deploy
-
+---
 O sistema pode ser acessado no seguinte link: https://diario-obra.herokuapp.com/
+
+---
+Desenvolvido por `Matheus Bertoldo!`
